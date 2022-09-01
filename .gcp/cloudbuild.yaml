@@ -1,0 +1,13 @@
+steps:
+  - name: 'maven:3.8-openjdk-11'
+    env:
+      - MAVEN_OPTS=-Xmx12g
+    args:
+      - '-T'
+      - '8'
+      - install
+    entrypoint: mvn
+timeout: 7200s
+options:
+  machineType: E2_HIGHCPU_8
+
