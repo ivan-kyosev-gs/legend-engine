@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Provided release version is: ${_RELEASE_VERSION}"
+echo "Provided release version is: ${RELEASE_VERSION}"
 
 
 

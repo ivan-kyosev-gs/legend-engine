@@ -1,6 +1,8 @@
 steps:
   - name: 'ubuntu'
     args: ['bash', './.gcp/release.sh']
+    env:
+      - 'RELEASE_VERSION=$_RELEASE_VERSION'
 timeout: 7200s
 options:
-  machineType: E2_HIGHCPU_32
+  machineType: E2_HIGHCPU_8
