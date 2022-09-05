@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo $_RELEASE_VERSION
+echo $RELEASE_VERSION
 
 
 
