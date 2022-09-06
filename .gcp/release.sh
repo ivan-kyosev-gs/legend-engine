@@ -16,6 +16,7 @@ mvn --version
 # setting env variables
 export MAVEN_OPTS=-Xmx4g
 
+echo "${CI_GPG_PASSPHRASE}"
 echo "========================================================================="
 gpg --list-secret-keys
 echo "========================================================================="

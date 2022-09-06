@@ -4,6 +4,11 @@ steps:
     env:
       - 'RELEASE_VERSION=$_RELEASE_VERSION'
       - 'DOCKER_USERNAME=finos'
+    secretEnv: ['CI_GPG_PASSPHRASE']
+availableSecrets:
+  secretManager:
+    - versionName: projects/ivan-legend-build-project/secrets/CI_GPG_PASSPHRASE/versions/latest
+      env: 'CI_GPG_PASSPHRASE'
 timeout: 7200s
 options:
   machineType: E2_HIGHCPU_8
