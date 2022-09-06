@@ -16,7 +16,7 @@ gpg --version
 
 # setting env variables
 export MAVEN_OPTS=-Xmx4g
-#export GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 
 # importing GPG private key
 echo "========================================================================="
