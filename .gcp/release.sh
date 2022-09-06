@@ -20,7 +20,7 @@ export MAVEN_OPTS=-Xmx4g
 # importing GPG private key
 echo "========================================================================="
 echo "${CI_GPG_PRIVATE_KEY}" > private.key
-gpg --pinentry-mode loopback --import private.key | less
+gpg --batch --pinentry-mode loopback --import private.key
 rm private.key
 echo "========================================================================="
 gpg --list-secret-keys
