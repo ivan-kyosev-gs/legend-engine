@@ -1,7 +1,6 @@
 steps:
   - name: 'maven:3.8-openjdk-11'
-    entrypoint: 'bash'
-    args: ['./.gcp/release.sh']
+    args: ['bash', './.gcp/release.sh']
     env:
       - 'RELEASE_VERSION=$_RELEASE_VERSION'
 timeout: 7200s
