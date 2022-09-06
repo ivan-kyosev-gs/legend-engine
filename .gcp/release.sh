@@ -1,10 +1,15 @@
 #!/bin/bash
 
+# calculating the next development version
+n=${RELEASE_VERSION//[!0-9]/}
+a=(${n//\./ })
+nextPatch=$((${a[2]} + 1))
+export DEVELOPMENT_VERSION="${a[0]}.${a[1]}.${nextPatch}-SNAPSHOT"
+
 echo "Provided release version is: ${RELEASE_VERSION}"
+echo "Next development version is: ${DEVELOPMENT_VERSION}"
 
-echo "JAVA_HOME is: ${JAVA_HOME}"
-echo "M2_HOME is: ${M2_HOME}"
-
+# printing java and maven versions
 java --version
 mvn --version
 
