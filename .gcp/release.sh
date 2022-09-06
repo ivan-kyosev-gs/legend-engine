@@ -16,5 +16,12 @@ mvn --version
 # setting env variables
 export MAVEN_OPTS=-Xmx4g
 
+echo "========================================================================="
+gpg --list-secret-keys
+echo "========================================================================="
+gpg --list-secret-keys
+echo "========================================================================="
+
+
 # running the build
-mvn install
+# mvn -B install
