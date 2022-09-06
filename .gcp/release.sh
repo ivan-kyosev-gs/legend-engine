@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # calculating the next development version
-n=${RELEASE_VERSION//[!0-9]/}
+n=${RELEASE_VERSION//[!0-9]/ }
 a=(${n//\./ })
 nextPatch=$((${a[2]} + 1))
 export DEVELOPMENT_VERSION="${a[0]}.${a[1]}.${nextPatch}-SNAPSHOT"
