@@ -9,18 +9,22 @@ export DEVELOPMENT_VERSION="${a[0]}.${a[1]}.${nextPatch}-SNAPSHOT"
 echo "Provided release version is: ${RELEASE_VERSION}"
 echo "Next development version is: ${DEVELOPMENT_VERSION}"
 
-# printing java and maven versions
+# printing tool versions
 java --version
 mvn --version
+gpg --version
 
 # setting env variables
 export MAVEN_OPTS=-Xmx4g
 
-echo "${CI_GPG_PASSPHRASE}"
+# importing GPG private key
+echo "${CI_GPG_PRIVATE_KEY}" > private.key
+gpg --import private.key
+rm private.key
 echo "========================================================================="
 gpg --list-secret-keys
 echo "========================================================================="
-gpg --list-secret-keys
+gpg --list--signatures
 echo "========================================================================="
 
 
