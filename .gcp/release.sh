@@ -13,7 +13,8 @@ echo "Next development version is: ${DEVELOPMENT_VERSION}"
 java --version
 mvn --version
 
+# setting env variables
+export MAVEN_OPTS=-Xmx4g
 
-# export MAVEN_OPTS=-Xmx12g
-# mvn -T 8 install
-
+# running the build
+mvn install
