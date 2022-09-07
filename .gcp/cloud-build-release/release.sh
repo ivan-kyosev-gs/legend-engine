@@ -22,5 +22,19 @@ echo "${CI_GPG_PRIVATE_KEY}" > private.key
 gpg --batch --import private.key
 rm private.key
 
+# configuring finos-admin git user
+git config --global user.email "37706051+finos-admin@users.noreply.github.com"
+git config --global user.name "FINOS Administrator"
+
+
+export FAKE_TOKEN="abc_hewuiewbf_r223"
+
+
+echo "----------------------------------------------"
+echo $HOME
+echo "----------------------------------------------"
+
+git remote -v
+
 # running the build
 #mvn -B install
