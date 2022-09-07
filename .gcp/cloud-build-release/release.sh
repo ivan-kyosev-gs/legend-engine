@@ -29,9 +29,5 @@ git config --global user.name "FINOS Administrator"
 git config --global credential.helper store
 echo "https://finos-admin:${FINOS_GITHUB_TOKEN}@github.com" > $HOME/.git-credentials
 
-echo "----------------------------------------------"
-cat $HOME/.git-credentials
-echo "----------------------------------------------"
-
 # running the build
 #mvn -B install
