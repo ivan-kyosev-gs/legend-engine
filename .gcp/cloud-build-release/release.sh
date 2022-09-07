@@ -27,7 +27,7 @@ git config --global user.email "37706051+finos-admin@users.noreply.github.com"
 git config --global user.name "FINOS Administrator"
 
 
-export FAKE_TOKEN="abc_hewuiewbf_r223"
+export FINOS_GITHUB_TOKEN="abc_123"
 
 
 echo "----------------------------------------------"
