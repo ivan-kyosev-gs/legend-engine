@@ -23,18 +23,14 @@ gpg --batch --import private.key
 rm private.key
 
 # configuring finos-admin git user
+export FINOS_GITHUB_TOKEN="abc_123"
 git config --global user.email "37706051+finos-admin@users.noreply.github.com"
 git config --global user.name "FINOS Administrator"
-
-
-export FINOS_GITHUB_TOKEN="abc_123"
-
+echo "https://finos-admin:${FINOS_GITHUB_TOKEN}@github.com" > $HOME/.git-credentials
 
 echo "----------------------------------------------"
-echo $HOME
+cat $HOME/.git-credentials
 echo "----------------------------------------------"
-
-git remote -v
 
 # running the build
 #mvn -B install
