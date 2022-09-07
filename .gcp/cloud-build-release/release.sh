@@ -26,6 +26,7 @@ rm private.key
 export FINOS_GITHUB_TOKEN="abc_123"
 git config --global user.email "37706051+finos-admin@users.noreply.github.com"
 git config --global user.name "FINOS Administrator"
+git config --global credential.helper store
 echo "https://finos-admin:${FINOS_GITHUB_TOKEN}@github.com" > $HOME/.git-credentials
 
 echo "----------------------------------------------"
