@@ -23,4 +23,4 @@ gpg --batch --import private.key
 rm private.key
 
 # running the build
-mvn -B install
+#mvn -B install
