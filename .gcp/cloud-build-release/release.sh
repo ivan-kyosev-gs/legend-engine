@@ -30,4 +30,4 @@ git config --global credential.helper store
 echo "https://finos-admin:${FINOS_GITHUB_TOKEN}@github.com" > $HOME/.git-credentials
 
 # running the build
-#mvn -B install
+mvn -B install
