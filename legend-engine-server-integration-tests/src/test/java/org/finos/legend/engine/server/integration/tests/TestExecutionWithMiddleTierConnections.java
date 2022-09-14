@@ -22,6 +22,7 @@ import org.finos.legend.engine.plan.execution.result.serialization.Serialization
 import org.finos.legend.engine.protocol.pure.v1.model.executionPlan.SingleExecutionPlan;
 import org.finos.legend.engine.shared.core.ObjectMapperFactory;
 import org.finos.legend.engine.shared.core.identity.factory.DefaultIdentityFactory;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.core.Response;
@@ -38,6 +39,7 @@ import static org.junit.Assert.assertTrue;
 public class TestExecutionWithMiddleTierConnections extends AbstractMiddleTierExecutionTest
 {
     @Test
+    @Ignore
     public void testWithExecutePlan_ExecutionAuthorized() throws Exception
     {
         // fake the credential authorization - allow credential use
