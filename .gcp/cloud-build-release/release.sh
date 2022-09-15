@@ -6,9 +6,14 @@
 java --version
 mvn --version
 gpg --version
+docker --version
+
+
+docker ps -a
+
 
 # setting env variables
 export MAVEN_OPTS="-Xms16g -Xmx24g"
 
 # running the build
-mvn -B -e install
+mvn -B -e -X install
