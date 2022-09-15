@@ -7,13 +7,14 @@ java --version
 mvn --version
 gpg --version
 
-
-apt-get update && apt-get install -y ca-certificates curl gnupg lsb-release
-
-mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-
-apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# installing docker
+apt update && apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+apt update && apt -y install docker-ce docker-ce-cli containerd.io
+systemctl enable --now docker
+usermod -aG docker $USER
+newgrp docker
 
 
 echo "--------------------------------------- DOCKER VERSION ----------------------------------"
