@@ -23,7 +23,7 @@ import org.finos.legend.engine.protocol.pure.v1.model.executionPlan.SingleExecut
 import org.finos.legend.engine.shared.core.ObjectMapperFactory;
 import org.finos.legend.engine.shared.core.identity.factory.DefaultIdentityFactory;
 import org.junit.Test;
-//import org.slf4j.Logger;
+import org.slf4j.Logger;
 
 import javax.ws.rs.core.Response;
 import java.io.IOException;
@@ -39,7 +39,7 @@ import static org.junit.Assert.assertTrue;
 public class TestExecutionWithMiddleTierConnections extends AbstractMiddleTierExecutionTest
 {
 
-    //private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger("TestExecutionWithMiddleTierConnections Logger");
+    private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger("TestExecutionWithMiddleTierConnections Logger");
 
     @Test
     public void testWithExecutePlan_ExecutionAuthorized() throws Exception
@@ -49,9 +49,9 @@ public class TestExecutionWithMiddleTierConnections extends AbstractMiddleTierEx
         RelationalMiddleTierPlanExecutionAuthorizer relationalMiddleTierPlanExecutionAuthorizer = new RelationalMiddleTierPlanExecutionAuthorizer(credentialAuthorizer);
         RootMiddleTierPlanExecutionAuthorizer planExecutionAuthorizer = new RootMiddleTierPlanExecutionAuthorizer(Lists.immutable.of(relationalMiddleTierPlanExecutionAuthorizer));
 
-        //LOGGER.info("------------------------- about to run execution plan -----------------------");
-        //LOGGER.info(postgresTestContainerWrapper.postgreSQLContainer.getLogs());
-        //LOGGER.info("------------------------- end of container logs -----------------------");
+        LOGGER.info("------------------------- about to run execution plan -----------------------");
+        LOGGER.info(postgresTestContainerWrapper.postgreSQLContainer.getLogs());
+        LOGGER.info("------------------------- end of container logs -----------------------");
 
         SingleExecutionPlan executionPlan = this.loadPlanFromFile("/plans/planWithSingleMiddleTierConnection.json", postgresTestContainerWrapper.getPort());
         Response response = new ExecutePlan(buildPlanExecutor(), planExecutionAuthorizer, new DefaultIdentityFactory()).doExecutePlanImpl(executionPlan, SerializationFormat.defaultFormat, profiles);
