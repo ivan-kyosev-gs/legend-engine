@@ -68,7 +68,7 @@ public class AbstractMiddleTierExecutionTest
         {
             postgresTestContainerWrapper = PostgresTestContainerWrapper.build();
             postgresTestContainerWrapper.postgreSQLContainer.start();
-            postgresTestContainerWrapper.postgreSQLContainer.wait(60000, 0);
+            //postgresTestContainerWrapper.postgreSQLContainer.wait(60000, 0);
         }
         catch (Exception e)
         {
