@@ -27,6 +27,9 @@ echo "--------------------------------------- DOCKER PS A ----------------------
 docker ps -a
 echo "--------------------------------------- DOCKER PS A ----------------------------------"
 
+echo "--------------------------------------- DOCKER RUN HELLO WORLD ----------------------------------"
+docker run hello-world
+echo "--------------------------------------- DOCKER RUN HELLO WORLD ----------------------------------"
 
 # setting env variables
 export MAVEN_OPTS="-Xms16g -Xmx24g"
