@@ -26,4 +26,4 @@ find . -type f -name "pom.xml" -exec sed -i 's/${legend.pure.version}/3.6.2-SNAP
 echo "------------------------------ running legend-engine-build -----------------"
 
 # running the build
-mvn -B -e -T 8 install
+mvn -B -e -T 4 install
