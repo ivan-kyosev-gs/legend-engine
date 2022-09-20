@@ -20,7 +20,7 @@ mvn -B -e install -DskipTests -Dskip.yarn=true
 
 cd ..
 
-sed -i 's/${legend.pure.version}/3.6.2-SNAPSHOT/g' pom.xml
+find . -type f -name "pom.xml" -exec sed -i 's/${legend.pure.version}/3.6.2-SNAPSHOT/g' {} +
 
 
 echo "------------------------------ running legend-engine-build -----------------"
