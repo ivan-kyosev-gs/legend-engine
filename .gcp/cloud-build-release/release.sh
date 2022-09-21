@@ -8,7 +8,7 @@ mvn --version
 gpg --version
 
 # setting env variables
-export MAVEN_OPTS="-Xms30g -Xmx30g"
+export MAVEN_OPTS="-Xms8g -Xmx16g"
 
 
 
@@ -26,4 +26,4 @@ find . -type f -name "pom.xml" -exec sed -i 's/${legend.pure.version}/3.6.2-SNAP
 echo "------------------------------ running legend-engine-build -----------------"
 
 # running the build
-mvn -B -e -T 8 install -DskipTests
+mvn -B -e -T 4 install
