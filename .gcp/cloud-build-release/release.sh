@@ -27,3 +27,4 @@ echo "------------------------------ running legend-engine-build ---------------
 
 # running the build
 mvn -B -e -T 4 install
+
