@@ -1,0 +1,15 @@
+name: Trigger GCP build
+
+env:
+  GCP_API_KEY: ${{ secrets.GCP_API_KEY }}
+  BUILD_TRIGGER_SECRET: ${{ secrets.BUILD_TRIGGER_SECRET }}
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        run: curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/ivan-legend-build-project/triggers/parallel-legend-engine-build:webhook?key=${GCP_API_KEY}&secret=${BUILD_TRIGGER_SECRET}" -d "{}"
