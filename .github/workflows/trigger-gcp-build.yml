@@ -15,3 +15,6 @@ jobs:
     steps:
       - name: Checkout repo
         run: curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/ivan-legend-build-project/triggers/parallel-legend-engine-build:webhook?key=${GCP_API_KEY}&secret=${BUILD_TRIGGER_SECRET}" -d "{}"
+
+      - name: Build logs
+        run: echo "Check for the build logs here https://console.cloud.google.com/storage/browser/legend-engine-logs"
