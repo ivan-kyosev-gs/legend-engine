@@ -8,7 +8,7 @@ mvn --version
 gpg --version
 
 # setting env variables
-export MAVEN_OPTS="-Xms8g -Xmx16g"
+export MAVEN_OPTS="-Xms14g -Xmx14g"
 
 
 
