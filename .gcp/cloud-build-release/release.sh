@@ -10,21 +10,5 @@ gpg --version
 # setting env variables
 export MAVEN_OPTS="-Xms14g -Xmx14g"
 
-
-
-git clone https://github.com/kevin-m-knight-gs/legend-pure.git
-cd legend-pure
-git checkout thread_safe_repos
-
-mvn -B -e install -DskipTests -Dskip.yarn=true
-
-cd ..
-
-find . -type f -name "pom.xml" -exec sed -i 's/${legend.pure.version}/3.6.2-SNAPSHOT/g' {} +
-
-
-echo "------------------------------ running legend-engine-build -----------------"
-
 # running the build
 mvn -B -e -T 4 install
-
