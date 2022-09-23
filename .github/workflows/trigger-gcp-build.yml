@@ -5,9 +5,9 @@ env:
   BUILD_TRIGGER_SECRET: ${{ secrets.BUILD_TRIGGER_SECRET }}
 
 on:
-#  push:
-#    branches:
-#      - "gcp-initial"
+  push:
+    branches:
+      - "gcp-initial"
   workflow_dispatch: {}
 
 jobs:
