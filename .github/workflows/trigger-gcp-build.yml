@@ -29,6 +29,7 @@ jobs:
         with:
           workload_identity_provider: 'projects/541264347167/locations/global/workloadIdentityPools/legend-engine-trigger-pool/providers/github-provider'
           service_account: 'legend-engine-trigger@ivan-legend-build-project.iam.gserviceaccount.com'
+          create_credentials_file: false
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
