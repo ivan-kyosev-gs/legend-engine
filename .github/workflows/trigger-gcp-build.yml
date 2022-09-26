@@ -23,10 +23,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-#      - name: Curl webhook
-#        run: curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/ivan-legend-build-project/triggers/parallel-legend-engine-build:webhook?key=${GCP_API_KEY}&secret=${BUILD_TRIGGER_SECRET}" -d "{}"
+      - name: Trigger GCP build
+        run: curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/ivan-legend-build-project/triggers/parallel-legend-engine-build:webhook?key=${GCP_API_KEY}&secret=${BUILD_TRIGGER_SECRET}" -d "{}"
 
-      - id: auth
+      - name: GCP auth
         uses: google-github-actions/auth@v0
         with:
           workload_identity_provider: 'projects/541264347167/locations/global/workloadIdentityPools/legend-engine-trigger-pool/providers/github-provider'
