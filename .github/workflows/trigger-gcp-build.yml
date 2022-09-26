@@ -33,8 +33,10 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
 
-      - name: Print last build ID
-        run: echo "GCP_BUILD_ID=${gcloud builds list --sort-by CREATE_TIME --limit 1 --format json | jq -r '.[0].id'}" >> $GITHUB_ENV
+      - name: Get last build ID
+        run: |
+          gcpBuildId="${gcloud builds list --sort-by CREATE_TIME --limit 1 --format json | jq -r '.[0].id'}"
+          echo "GCP_BUILD_ID=${gcpBuildId}" >> $GITHUB_ENV
 
       - name: Build logs
         run: |
