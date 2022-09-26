@@ -36,11 +36,12 @@ jobs:
         run: gcloud info
 
       - name: Print last build ID
-        run: gcloud builds list --sort-by CREATE_TIME --limit 1 --format json | jq -r '.[0].id'
+        run: echo "GCP_BUILD_ID=${gcloud builds list --sort-by CREATE_TIME --limit 1 --format json | jq -r '.[0].id'}" >> $GITHUB_ENV
 
 #      - name: Curl webhook
 #        run: curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/ivan-legend-build-project/triggers/parallel-legend-engine-build:webhook?key=${GCP_API_KEY}&secret=${BUILD_TRIGGER_SECRET}" -d "{}"
 
       - name: Build logs
-        run: echo "Check for the build logs here https://console.cloud.google.com/storage/browser/legend-engine-logs"
-
+        run: |
+          echo "Build logs for the triggered job are available here: https://storage.googleapis.com/legend-engine-logs/log-${{ env.GCP_BUILD_ID }}.txt"
+          echo "All GCP build log are available here: https://console.cloud.google.com/storage/browser/legend-engine-logs"
