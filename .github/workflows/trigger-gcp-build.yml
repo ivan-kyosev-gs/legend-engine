@@ -20,8 +20,9 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+#      - name: Curl webhook
+#        run: curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/ivan-legend-build-project/triggers/parallel-legend-engine-build:webhook?key=${GCP_API_KEY}&secret=${BUILD_TRIGGER_SECRET}" -d "{}"
+
 
       - id: auth
         uses: google-github-actions/auth@v0
@@ -32,14 +33,8 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
 
-      - name: Use gcloud CLI
-        run: gcloud info
-
       - name: Print last build ID
         run: echo "GCP_BUILD_ID=${gcloud builds list --sort-by CREATE_TIME --limit 1 --format json | jq -r '.[0].id'}" >> $GITHUB_ENV
-
-#      - name: Curl webhook
-#        run: curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/ivan-legend-build-project/triggers/parallel-legend-engine-build:webhook?key=${GCP_API_KEY}&secret=${BUILD_TRIGGER_SECRET}" -d "{}"
 
       - name: Build logs
         run: |
