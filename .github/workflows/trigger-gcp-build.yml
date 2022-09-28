@@ -5,9 +5,9 @@ env:
   BUILD_TRIGGER_SECRET: ${{ secrets.BUILD_TRIGGER_SECRET }}
 
 on:
-#  push:
-#    branches:
-#      - "gcp-initial"
+  push:
+    branches:
+      - "gcp-initial"
   workflow_dispatch: {}
 
 jobs:
@@ -38,7 +38,18 @@ jobs:
       - name: Get last build ID
         run: echo "GCP_BUILD_ID=$(gcloud builds list --sort-by CREATE_TIME --limit 1 --format='value(id)')" >> $GITHUB_ENV
 
-      - name: Build logs
+      - name: Stream build logs
+        run: gcloud builds log --stream '${{ env.GCP_BUILD_ID }}'
+
+      - name: Report GCP build status
         run: |
-          echo "Build logs for the triggered job are available here: https://storage.googleapis.com/legend-engine-logs/log-${{ env.GCP_BUILD_ID }}.txt"
-          echo "All GCP build log are available here: https://console.cloud.google.com/storage/browser/legend-engine-logs"
+          buildStatus=$(gcloud builds list --sort-by CREATE_TIME --limit 1 --format='value(status)')
+          
+          if [ $buildStatus == "SUCCESS" ]; then
+            echo "The build has succeeded!"
+          else
+            echo "Logs streaming ended with the build having a status of '${buildStatus}'"
+            echo "Check the full build logs at: https://storage.googleapis.com/legend-engine-logs/log-${{ env.GCP_BUILD_ID }}.txt"
+            echo "All GCP build log are available here: https://console.cloud.google.com/storage/browser/legend-engine-logs"
+            exit 1
+          fi
