@@ -8,8 +8,7 @@ mvn --version
 gpg --version
 
 # setting env variables
-export MAVEN_OPTS="-Xms14g -Xmx14g"
+export MAVEN_OPTS="-Xms10g -Xmx10g"
 
 # running the build
-mvn -B -e -T 4 install
-
+mvn -B -e -T 4 install -DargLine="-Xms5g -Xmx5g"
